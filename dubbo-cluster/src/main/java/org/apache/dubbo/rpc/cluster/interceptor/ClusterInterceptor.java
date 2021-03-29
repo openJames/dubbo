@@ -44,6 +44,7 @@ public interface ClusterInterceptor {
      * @throws RpcException
      */
     default Result intercept(AbstractClusterInvoker<?> clusterInvoker, Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.cluster.interceptor.ClusterInterceptor.intercept");
         return clusterInvoker.invoke(invocation);
     }
 

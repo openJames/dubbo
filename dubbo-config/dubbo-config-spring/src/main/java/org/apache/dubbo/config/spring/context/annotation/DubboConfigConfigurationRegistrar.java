@@ -46,6 +46,8 @@ public class DubboConfigConfigurationRegistrar implements ImportBeanDefinitionRe
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 
+        System.out.println("注册对象定义: org.apache.dubbo.config.spring.context.annotation.DubboConfigConfigurationRegistrar.registerBeanDefinitions");
+
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(
                 importingClassMetadata.getAnnotationAttributes(EnableDubboConfig.class.getName()));
 

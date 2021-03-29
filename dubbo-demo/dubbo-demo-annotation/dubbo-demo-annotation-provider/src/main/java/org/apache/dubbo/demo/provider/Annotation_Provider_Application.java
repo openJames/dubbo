@@ -24,8 +24,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-public class Application {
+public class Annotation_Provider_Application {
     public static void main(String[] args) throws Exception {
+        //  AnnotationConfigApplicationContext 为 spring的东西
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfiguration.class);
         context.start();
         System.in.read();

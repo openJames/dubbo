@@ -25,17 +25,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-public class Application {
+public class Annotation_Consumer_Application {
     /**
      * In order to make sure multicast registry works, need to specify '-Djava.net.preferIPv4Stack=true' before
      * launch the application
      */
     public static void main(String[] args) {
+        System.out.println("启动consumer---------------------------------------------->>>>>>>>>>>>>>>>>");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
         context.start();
         DemoService service = context.getBean("demoServiceComponent", DemoServiceComponent.class);
         String hello = service.sayHello("world");
-        System.out.println("result :" + hello);
+        System.out.println("启动consumer,获取结果-----------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<result :" + hello);
     }
 
     @Configuration

@@ -142,10 +142,12 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     private final List<Exporter<?>> exporters = new ArrayList<Exporter<?>>();
 
     public ServiceConfig() {
+        logger.info("ServiceConfig初始化: org.apache.dubbo.config.ServiceConfig.ServiceConfig()");
     }
 
     public ServiceConfig(Service service) {
         super(service);
+        logger.info("ServiceConfig初始化: org.apache.dubbo.config.ServiceConfig.ServiceConfig(Service)");
     }
 
     @Parameter(excluded = true)
@@ -182,6 +184,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     }
 
     public synchronized void export() {
+        logger.info("暴露服务: org.apache.dubbo.config.ServiceConfig.export()");
         if (bootstrap == null) {
             bootstrap = DubboBootstrap.getInstance();
             bootstrap.initialize();
@@ -197,6 +200,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
             return;
         }
 
+        // 延迟暴露
         if (shouldDelay()) {
             DELAY_EXPORT_EXECUTOR.schedule(this::doExport, getDelay(), TimeUnit.MILLISECONDS);
         } else {
@@ -491,7 +495,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
                         Invoker<?> invoker = PROXY_FACTORY.getInvoker(ref, (Class) interfaceClass, registryURL.addParameterAndEncoded(EXPORT_KEY, url.toFullString()));
                         DelegateProviderMetaDataInvoker wrapperInvoker = new DelegateProviderMetaDataInvoker(invoker, this);
-
+                        System.out.println("开始暴露入口: org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol");
                         Exporter<?> exporter = PROTOCOL.export(wrapperInvoker);
                         exporters.add(exporter);
                     }

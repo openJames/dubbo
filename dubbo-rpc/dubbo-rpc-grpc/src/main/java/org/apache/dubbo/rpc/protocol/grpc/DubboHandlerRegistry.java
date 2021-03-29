@@ -55,6 +55,7 @@ public class DubboHandlerRegistry extends HandlerRegistry {
     }
 
     void addService(BindableService bindableService, String key) {
+        System.out.println("添加服务: org.apache.dubbo.rpc.protocol.grpc.DubboHandlerRegistry.addService");
         ServerServiceDefinition service = bindableService.bindService();
         services.put(key, service);
         for (ServerMethodDefinition<?, ?> method : service.getMethods()) {

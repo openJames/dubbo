@@ -54,6 +54,7 @@ public class HeaderExchangeClient implements ExchangeClient {
     private ReconnectTimerTask reconnectTimerTask;
 
     public HeaderExchangeClient(Client client, boolean startTimer) {
+        System.out.println("HeaderExchangeClient 初始化");
         Assert.notNull(client, "Client can't be null");
         this.client = client;
         this.channel = new HeaderExchangeChannel(client);
@@ -92,6 +93,7 @@ public class HeaderExchangeClient implements ExchangeClient {
 
     @Override
     public CompletableFuture<Object> request(Object request, int timeout, ExecutorService executor) throws RemotingException {
+        System.out.println("调用ExchangeChannel实现类: org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeClient.request(java.lang.Object, int, java.util.concurrent.ExecutorService)");
         return channel.request(request, timeout, executor);
     }
 
@@ -163,6 +165,7 @@ public class HeaderExchangeClient implements ExchangeClient {
 
     @Override
     public void reconnect() throws RemotingException {
+        System.out.println("重新连接: org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeClient.reconnect()");
         client.reconnect();
     }
 

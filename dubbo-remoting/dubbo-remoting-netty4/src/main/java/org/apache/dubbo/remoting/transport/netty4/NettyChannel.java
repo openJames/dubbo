@@ -159,6 +159,7 @@ final class NettyChannel extends AbstractChannel {
         boolean success = true;
         int timeout = 0;
         try {
+            System.out.println("channel的writeAndFlush: org.apache.dubbo.remoting.transport.netty4.NettyChannel.send");
             ChannelFuture future = channel.writeAndFlush(message);
             if (sent) {
                 // wait timeout ms

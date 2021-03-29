@@ -24,16 +24,19 @@ import org.apache.dubbo.rpc.RpcException;
 public class MockProxyFactory implements ProxyFactory {
     @Override
     public <T> T getProxy(Invoker<T> invoker) throws RpcException {
+        System.out.println("代理获取: org.apache.dubbo.config.mock.MockProxyFactory.getProxy(org.apache.dubbo.rpc.Invoker<T>)");
         return null;
     }
 
     @Override
     public <T> T getProxy(Invoker<T> invoker, boolean generic) throws RpcException {
+        System.out.println("代理获取: org.apache.dubbo.config.mock.MockProxyFactory.getProxy(org.apache.dubbo.rpc.Invoker<T>, boolean)");
         return null;
     }
 
     @Override
     public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) throws RpcException {
+        System.out.println("代理获取: org.apache.dubbo.config.mock.MockProxyFactory.getInvoker");
         return null;
     }
 }

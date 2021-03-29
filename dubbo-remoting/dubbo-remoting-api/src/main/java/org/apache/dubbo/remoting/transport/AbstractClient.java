@@ -170,6 +170,7 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
 
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
+        System.out.println("获取channel然后发送消息: org.apache.dubbo.remoting.transport.AbstractClient.send");
         if (needReconnect && !isConnected()) {
             connect();
         }

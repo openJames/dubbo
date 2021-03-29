@@ -65,6 +65,7 @@ public class ReferenceBean<T> extends ReferenceConfig<T> implements FactoryBean,
 
     @Override
     public Object getObject() {
+        logger.info("获取对象: org.apache.dubbo.config.spring.ReferenceBean.getObject()");
         return get();
     }
 

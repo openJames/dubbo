@@ -49,6 +49,8 @@ public class AnnotationBeanDefinitionParser extends AbstractSingleBeanDefinition
     @Override
     protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {
 
+        System.out.println("进入解析: org.apache.dubbo.config.spring.schema.AnnotationBeanDefinitionParser.doParse");
+
         String packageToScan = element.getAttribute("package");
 
         String[] packagesToScan = trimArrayElements(commaDelimitedListToStringArray(packageToScan));

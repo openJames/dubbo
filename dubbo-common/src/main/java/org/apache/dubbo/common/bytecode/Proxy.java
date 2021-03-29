@@ -66,6 +66,7 @@ public abstract class Proxy {
      * @return Proxy instance.
      */
     public static Proxy getProxy(Class<?>... ics) {
+        System.out.println("获取代理: org.apache.dubbo.common.bytecode.Proxy.getProxy(java.lang.Class<?>...): 入参: " + ics);
         return getProxy(ClassUtils.getClassLoader(Proxy.class), ics);
     }
 

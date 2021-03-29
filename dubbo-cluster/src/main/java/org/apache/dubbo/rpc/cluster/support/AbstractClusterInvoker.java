@@ -251,6 +251,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
 
     @Override
     public Result invoke(final Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke");
         checkWhetherDestroyed();
 
         // binding attachments into invocation.

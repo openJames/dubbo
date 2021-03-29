@@ -56,6 +56,7 @@ class FilterNode<T> implements Invoker<T>{
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.protocol.FilterNode.invoke");
         Result asyncResult;
         try {
             asyncResult = filter.invoke(next, invocation);

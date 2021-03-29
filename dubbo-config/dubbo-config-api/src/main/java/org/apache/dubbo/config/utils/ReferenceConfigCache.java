@@ -104,6 +104,7 @@ public class ReferenceConfigCache {
 
     @SuppressWarnings("unchecked")
     public <T> T get(ReferenceConfigBase<T> referenceConfig) {
+        System.out.println("获取对象根据定义: org.apache.dubbo.config.utils.ReferenceConfigCache.get(org.apache.dubbo.config.ReferenceConfigBase<T>)");
         String key = generator.generateKey(referenceConfig);
         Class<?> type = referenceConfig.getInterfaceClass();
 

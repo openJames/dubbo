@@ -85,6 +85,7 @@ public class MockClusterInvoker<T> implements ClusterInvoker<T> {
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke");
         Result result = null;
 
         String value = getUrl().getMethodParameter(invocation.getMethodName(), MOCK_KEY, Boolean.FALSE.toString()).trim();

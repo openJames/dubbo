@@ -42,6 +42,7 @@ public class Hessian2ObjectOutput implements ObjectOutput, Cleanable {
     public Hessian2ObjectOutput(OutputStream os) {
         mH2o = OUTPUT_TL.get();
         mH2o.init(os);
+        System.out.println("Hessian2ObjectOutput 初始化");
     }
 
     @Override

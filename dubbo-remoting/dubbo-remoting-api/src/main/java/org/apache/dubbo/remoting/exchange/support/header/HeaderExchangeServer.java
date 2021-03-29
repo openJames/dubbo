@@ -63,6 +63,7 @@ public class HeaderExchangeServer implements ExchangeServer {
     private CloseTimerTask closeTimerTask;
 
     public HeaderExchangeServer(RemotingServer server) {
+        System.out.println("HeaderExchangeServer 初始化");
         Assert.notNull(server, "server == null");
         this.server = server;
         startIdleCheckTask(getUrl());

@@ -86,6 +86,7 @@ public abstract class AbstractCluster implements Cluster {
 
         @Override
         public Result invoke(Invocation invocation) throws RpcException {
+            System.out.println("代理调用: org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster.InterceptorInvokerNode.invoke");
             Result asyncResult;
             try {
                 interceptor.before(next, invocation);

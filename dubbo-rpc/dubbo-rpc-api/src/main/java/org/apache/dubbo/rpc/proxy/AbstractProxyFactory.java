@@ -42,11 +42,13 @@ public abstract class AbstractProxyFactory implements ProxyFactory {
 
     @Override
     public <T> T getProxy(Invoker<T> invoker) throws RpcException {
+        System.out.println("获取代理: org.apache.dubbo.rpc.proxy.AbstractProxyFactory.getProxy(org.apache.dubbo.rpc.Invoker<T>)");
         return getProxy(invoker, false);
     }
 
     @Override
     public <T> T getProxy(Invoker<T> invoker, boolean generic) throws RpcException {
+        System.out.println("获取代理: org.apache.dubbo.rpc.proxy.AbstractProxyFactory.getProxy(org.apache.dubbo.rpc.Invoker<T>, boolean)");
         Set<Class<?>> interfaces = new HashSet<>();
 
         String config = invoker.getUrl().getParameter(INTERFACES);

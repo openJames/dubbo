@@ -155,11 +155,14 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
     public ReferenceConfig() {
         super();
         this.repository = ApplicationModel.getServiceRepository();
+
+        logger.info("初始化: org.apache.dubbo.config.ReferenceConfig.ReferenceConfig()");
     }
 
     public ReferenceConfig(Reference reference) {
         super(reference);
         this.repository = ApplicationModel.getServiceRepository();
+        logger.info("初始化: org.apache.dubbo.config.ReferenceConfig.ReferenceConfig(org.apache.dubbo.config.annotation.Reference)");
     }
 
     /**
@@ -197,6 +200,8 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
     }
 
     public synchronized T get() {
+        System.out.println("获取代理对象: org.apache.dubbo.config.ReferenceConfig.get()");
+
         if (destroyed) {
             throw new IllegalStateException("The invoker of ReferenceConfig(" + url + ") has already destroyed!");
         }
@@ -227,6 +232,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
     }
 
     public synchronized void init() {
+        logger.info("是否已初始化: org.apache.dubbo.config.ReferenceConfig.init: " + initialized);
         if (initialized) {
             return;
         }
@@ -320,6 +326,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
 
     @SuppressWarnings({"unchecked", "rawtypes", "deprecation"})
     private T createProxy(Map<String, String> map) {
+        System.out.println("创建代理对象引用: org.apache.dubbo.config.ReferenceConfig.createProxy : 入参map: " +map);
         if (shouldJvmRefer(map)) {
             URL url = new URL(LOCAL_PROTOCOL, LOCALHOST_VALUE, 0, interfaceClass.getName()).addParameters(map);
             invoker = REF_PROTOCOL.refer(interfaceClass, url);

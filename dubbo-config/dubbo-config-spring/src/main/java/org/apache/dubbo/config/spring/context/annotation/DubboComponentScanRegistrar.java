@@ -53,6 +53,8 @@ public class DubboComponentScanRegistrar implements ImportBeanDefinitionRegistra
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 
+        System.out.println("注册对象定义: org.apache.dubbo.config.spring.context.annotation.DubboComponentScanRegistrar.registerBeanDefinitions");
+
         Set<String> packagesToScan = getPackagesToScan(importingClassMetadata);
 
         registerServiceAnnotationBeanPostProcessor(packagesToScan, registry);

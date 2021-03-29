@@ -134,6 +134,8 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         req.setData(request);
         DefaultFuture future = DefaultFuture.newFuture(channel, req, timeout, executor);
         try {
+            System.out.println("组装发送的消息体: " + req.toString());
+            System.out.println("返回future方便获取最终结果: org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeChannel.request(java.lang.Object, int, java.util.concurrent.ExecutorService)");
             channel.send(req);
         } catch (RemotingException e) {
             future.cancel();

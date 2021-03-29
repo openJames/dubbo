@@ -50,6 +50,7 @@ public class ExchangeServerPeer extends ExchangeServerDelegate implements Exchan
         super(server);
         this.clients = clients;
         this.group = group;
+        System.out.println("ExchangeServerPeer 初始化");
     }
 
     @Override

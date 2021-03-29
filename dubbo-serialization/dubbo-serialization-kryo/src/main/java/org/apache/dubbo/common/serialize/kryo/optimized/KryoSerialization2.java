@@ -47,11 +47,13 @@ public class KryoSerialization2 implements Serialization {
 
     @Override
     public ObjectOutput serialize(URL url, OutputStream out) throws IOException {
+        System.out.println("序列化: org.apache.dubbo.common.serialize.kryo.optimized.KryoSerialization2.serialize");
         return new KryoObjectOutput2(out);
     }
 
     @Override
     public ObjectInput deserialize(URL url, InputStream is) throws IOException {
+        System.out.println("反序列化: org.apache.dubbo.common.serialize.kryo.optimized.KryoSerialization2.deserialize");
         return new KryoObjectInput2(is);
     }
 }

@@ -63,6 +63,8 @@ public abstract class DubboBeanUtils {
      */
     public static void registerCommonBeans(BeanDefinitionRegistry registry) {
 
+        System.out.println("开始注册对象: org.apache.dubbo.config.spring.util.DubboBeanUtils.registerCommonBeans");
+
         // Since 2.5.7 Register @Reference Annotation Bean Processor as an infrastructure Bean
         registerInfrastructureBean(registry, ReferenceAnnotationBeanPostProcessor.BEAN_NAME,
                 ReferenceAnnotationBeanPostProcessor.class);

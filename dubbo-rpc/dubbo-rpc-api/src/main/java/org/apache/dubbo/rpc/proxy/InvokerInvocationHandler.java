@@ -64,6 +64,8 @@ public class InvokerInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        System.out.println("代理调用: org.apache.dubbo.rpc.proxy.InvokerInvocationHandler.invoke");
         if (method.getDeclaringClass() == Object.class) {
             return method.invoke(invoker, args);
         }

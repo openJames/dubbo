@@ -25,11 +25,13 @@ import java.util.concurrent.CompletableFuture;
 
 @Component("demoServiceComponent")
 public class DemoServiceComponent implements DemoService {
+
     @DubboReference
     private DemoService demoService;
 
     @Override
     public String sayHello(String name) {
+        System.out.println("获取下Component的内容先");
         return demoService.sayHello(name);
     }
 

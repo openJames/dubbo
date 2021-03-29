@@ -34,10 +34,12 @@ public class ExchangeServerDelegate implements ExchangeServer {
     private transient ExchangeServer server;
 
     public ExchangeServerDelegate() {
+        System.out.println("ExchangeServerDelegate 初始化");
     }
 
     public ExchangeServerDelegate(ExchangeServer server) {
         setServer(server);
+        System.out.println("ExchangeServerDelegate 初始化");
     }
 
     public ExchangeServer getServer() {

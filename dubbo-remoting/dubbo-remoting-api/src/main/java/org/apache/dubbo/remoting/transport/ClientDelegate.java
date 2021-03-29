@@ -71,6 +71,7 @@ public class ClientDelegate implements Client {
 
     @Override
     public void reconnect() throws RemotingException {
+        System.out.println("代理连接: org.apache.dubbo.remoting.transport.ClientDelegate.reconnect()");
         client.reconnect();
     }
 

@@ -24,7 +24,7 @@ import org.apache.dubbo.demo.DemoService;
 
 import java.util.concurrent.CountDownLatch;
 
-public class Application {
+public class Api_Provider {
     public static void main(String[] args) throws Exception {
         if (isClassic(args)) {
             startWithExport();
@@ -39,6 +39,8 @@ public class Application {
 
     private static void startWithBootstrap() {
         ServiceConfig<DemoServiceImpl> service = new ServiceConfig<>();
+
+        // 设置调用接口
         service.setInterface(DemoService.class);
         service.setRef(new DemoServiceImpl());
 

@@ -111,6 +111,7 @@ public class StubProxyFactoryWrapper implements ProxyFactory {
     @Override
     @SuppressWarnings({"unchecked", "rawtypes"})
     public <T> T getProxy(Invoker<T> invoker) throws RpcException {
+        System.out.println("获取代理对象: org.apache.dubbo.rpc.proxy.wrapper.StubProxyFactoryWrapper.getProxy(org.apache.dubbo.rpc.Invoker<T>)");
         return getProxy(invoker, false);
     }
 

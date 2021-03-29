@@ -49,6 +49,7 @@ public class AsyncToSyncInvoker<T> implements Invoker<T> {
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.protocol.AsyncToSyncInvoker.invoke");
         Result asyncResult = invoker.invoke(invocation);
 
         try {

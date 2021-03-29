@@ -80,6 +80,8 @@ public class DubboNamespaceHandler extends NamespaceHandlerSupport implements Co
      */
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
+        System.out.println("定义对象解析: org.apache.dubbo.config.spring.schema.DubboNamespaceHandler.parse");
+
         BeanDefinitionRegistry registry = parserContext.getRegistry();
         registerAnnotationConfigProcessors(registry);
         /**

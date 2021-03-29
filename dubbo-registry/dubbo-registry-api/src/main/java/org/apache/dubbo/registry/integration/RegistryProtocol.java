@@ -191,6 +191,7 @@ public class RegistryProtocol implements Protocol {
 
     @Override
     public <T> Exporter<T> export(final Invoker<T> originInvoker) throws RpcException {
+        System.out.println("远程暴露: org.apache.dubbo.registry.integration.RegistryProtocol.export");
         URL registryUrl = getRegistryUrl(originInvoker);
         // url to export locally
         URL providerUrl = getProviderUrl(originInvoker);
@@ -353,6 +354,7 @@ public class RegistryProtocol implements Protocol {
      * @return
      */
     protected Registry getRegistry(final Invoker<?> originInvoker) {
+        System.out.println("获取已注册的url: org.apache.dubbo.registry.integration.RegistryProtocol.getRegistry: " + originInvoker.getInterface());
         URL registryUrl = getRegistryUrl(originInvoker);
         return registryFactory.getRegistry(registryUrl);
     }

@@ -191,6 +191,7 @@ public class DubboBootstrap extends GenericEventListener {
      * See {@link ApplicationModel} and {@link ExtensionLoader} for why DubboBootstrap is designed to be singleton.
      */
     public static DubboBootstrap getInstance() {
+        System.out.println("获取实例: org.apache.dubbo.config.bootstrap.DubboBootstrap.getInstance()");
         if (instance == null) {
             synchronized (DubboBootstrap.class) {
                 if (instance == null) {
@@ -202,6 +203,7 @@ public class DubboBootstrap extends GenericEventListener {
     }
 
     private DubboBootstrap() {
+        System.out.println("获取配置和关机注册: org.apache.dubbo.config.bootstrap.DubboBootstrap.DubboBootstrap()");
         configManager = ApplicationModel.getConfigManager();
         environment = ApplicationModel.getEnvironment();
 
@@ -514,6 +516,7 @@ public class DubboBootstrap extends GenericEventListener {
      * Initialize
      */
     public void initialize() {
+        logger.info("初始化一系列配置: org.apache.dubbo.config.bootstrap.DubboBootstrap.initialize()");
         if (!initialized.compareAndSet(false, true)) {
             return;
         }
@@ -879,6 +882,7 @@ public class DubboBootstrap extends GenericEventListener {
      * Start the bootstrap
      */
     public DubboBootstrap start() {
+        System.out.println("开始暴露: org.apache.dubbo.config.bootstrap.DubboBootstrap.start");
         if (started.compareAndSet(false, true)) {
             ready.set(false);
             initialize();
@@ -1107,6 +1111,7 @@ public class DubboBootstrap extends GenericEventListener {
     }
 
     private void referServices() {
+        System.out.println("相关服务获取: org.apache.dubbo.config.bootstrap.DubboBootstrap.referServices");
         if (cache == null) {
             cache = ReferenceConfigCache.getCache();
         }

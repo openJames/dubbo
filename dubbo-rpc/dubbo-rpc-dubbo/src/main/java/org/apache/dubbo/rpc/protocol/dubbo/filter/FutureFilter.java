@@ -46,6 +46,7 @@ public class FutureFilter implements Filter, Filter.Listener {
 
     @Override
     public Result invoke(final Invoker<?> invoker, final Invocation invocation) throws RpcException {
+        System.out.println("代理调用: org.apache.dubbo.rpc.protocol.dubbo.filter.FutureFilter.invoke");
         fireInvokeCallback(invoker, invocation);
         // need to configure if there's return value before the invocation in order to help invoker to judge if it's
         // necessary to return future.

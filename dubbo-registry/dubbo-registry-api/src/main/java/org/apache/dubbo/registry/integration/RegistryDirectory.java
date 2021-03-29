@@ -114,6 +114,7 @@ public class RegistryDirectory<T> extends DynamicDirectory<T> implements NotifyL
 
     @Override
     public synchronized void notify(List<URL> urls) {
+        System.out.println("通知各个URL: org.apache.dubbo.registry.integration.RegistryDirectory.notify: " + urls);
         Map<String, List<URL>> categoryUrls = urls.stream()
                 .filter(Objects::nonNull)
                 .filter(this::isValidCategory)

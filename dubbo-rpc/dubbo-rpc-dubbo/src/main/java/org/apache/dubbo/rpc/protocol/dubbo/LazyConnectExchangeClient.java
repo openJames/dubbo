@@ -126,6 +126,7 @@ final class LazyConnectExchangeClient implements ExchangeClient {
     public CompletableFuture<Object> request(Object request, int timeout, ExecutorService executor) throws RemotingException {
         warning();
         initClient();
+        System.out.println("调用ExchangeChannel实现类: org.apache.dubbo.rpc.protocol.dubbo.LazyConnectExchangeClient.request(java.lang.Object, int, java.util.concurrent.ExecutorService)");
         return client.request(request, timeout, executor);
     }
 

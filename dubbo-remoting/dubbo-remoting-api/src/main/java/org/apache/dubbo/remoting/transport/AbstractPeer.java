@@ -50,7 +50,10 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
 
     @Override
     public void send(Object message) throws RemotingException {
-        send(message, url.getParameter(Constants.SENT_KEY, false));
+
+        boolean parameter = url.getParameter(Constants.SENT_KEY, false);
+        System.out.println("获取发送消息获取参数message和 " + parameter);
+        send(message, parameter);
     }
 
     @Override

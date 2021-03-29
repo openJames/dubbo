@@ -87,6 +87,7 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
 
     @Override
     public CompletableFuture<Object> request(Object request, int timeout, ExecutorService executor) throws RemotingException {
+        System.out.println("调用 ExchangeClient 实现类: org.apache.dubbo.rpc.protocol.dubbo.ReferenceCountExchangeClient.request(java.lang.Object, int, java.util.concurrent.ExecutorService)");
         return client.request(request, timeout, executor);
     }
 
