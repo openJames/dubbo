@@ -4,6 +4,7 @@ package org.apache.dubbo.demo.consumer.执行流程.服务引入过程;
  * desc:
  *
 
+ 本地 + 远程(直接+中心):
  服务的引入又分为了三种，
  第一种是本地引入、
  第二种是直接连接引入远程服务、
