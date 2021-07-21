@@ -39,6 +39,7 @@ public class MetadataServiceNameMapping implements ServiceNameMapping {
 
     @Override
     public void map(URL url) {
+        System.out.println("URLMap: MetadataServiceNameMapping: " + url);
         String serviceInterface = url.getServiceInterface();
         String group = url.getParameter(GROUP_KEY);
         String version = url.getParameter(VERSION_KEY);

@@ -45,6 +45,7 @@ public class DynamicConfigurationServiceNameMapping implements ServiceNameMappin
 
     @Override
     public void map(URL url) {
+        System.out.println("URLMap: DynamicConfigurationServiceNameMapping: " + url);
         String serviceInterface = url.getServiceInterface();
         String group = url.getParameter(GROUP_KEY);
         String version = url.getParameter(VERSION_KEY);

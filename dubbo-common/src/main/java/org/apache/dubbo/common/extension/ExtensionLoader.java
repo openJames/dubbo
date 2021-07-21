@@ -151,7 +151,7 @@ public class ExtensionLoader<T> {
 
     @SuppressWarnings("unchecked")
     public static <T> ExtensionLoader<T> getExtensionLoader(Class<T> type) {
-        System.out.println("获取拓展加载类: org.apache.dubbo.common.extension.ExtensionLoader.getExtensionLoader");
+//        System.out.println("获取拓展加载类: org.apache.dubbo.common.extension.ExtensionLoader.getExtensionLoader");
         if (type == null) {
             throw new IllegalArgumentException("Extension type == null");
         }
@@ -411,11 +411,12 @@ public class ExtensionLoader<T> {
      */
     @SuppressWarnings("unchecked")
     public T getExtension(String name) {
+//        System.out.println("加载spi的key为: " + name);
         return getExtension(name, true);
     }
 
     public T getExtension(String name, boolean wrap) {
-        System.out.println("获取Extension org.apache.dubbo.common.extension.ExtensionLoader.getExtension(java.lang.String, boolean)");
+//        System.out.println("获取Extension org.apache.dubbo.common.extension.ExtensionLoader.getExtension(java.lang.String, boolean)");
         if (StringUtils.isEmpty(name)) {
             throw new IllegalArgumentException("Extension name == null");
         }
@@ -626,7 +627,7 @@ public class ExtensionLoader<T> {
 
     @SuppressWarnings("unchecked")
     private T createExtension(String name, boolean wrap) {
-        System.out.println("创建Extension: org.apache.dubbo.common.extension.ExtensionLoader.createExtension");
+//        System.out.println("创建Extension: org.apache.dubbo.common.extension.ExtensionLoader.createExtension");
         Class<?> clazz = getExtensionClasses().get(name);
         if (clazz == null) {
             throw findException(name);

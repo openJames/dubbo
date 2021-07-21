@@ -280,7 +280,7 @@ public class DubboProtocol extends AbstractProtocol {
 
     @Override
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
-        System.out.println("暴露dubbo协议: org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol.export(Invoker<T> invoker)");
+        System.out.println("url->暴露dubbo协议: org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol.export(Invoker<T> invoker)");
         URL url = invoker.getUrl();
 
         // export service.

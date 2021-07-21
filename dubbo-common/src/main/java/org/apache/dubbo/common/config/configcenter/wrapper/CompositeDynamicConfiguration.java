@@ -67,6 +67,7 @@ public class CompositeDynamicConfiguration implements DynamicConfiguration {
 
     @Override
     public boolean publishConfig(String key, String group, String content) throws UnsupportedOperationException {
+        System.out.println("publishConfig CompositeDynamicConfiguration: " + key);
         boolean publishedAll = true;
         for (DynamicConfiguration configuration : configurations) {
             if (!configuration.publishConfig(key, group, content)) {

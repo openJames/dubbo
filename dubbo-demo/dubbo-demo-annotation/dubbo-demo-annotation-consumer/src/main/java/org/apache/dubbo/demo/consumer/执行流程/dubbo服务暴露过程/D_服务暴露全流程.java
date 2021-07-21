@@ -1,5 +1,9 @@
 package org.apache.dubbo.demo.consumer.执行流程.dubbo服务暴露过程;
 
+import org.apache.dubbo.config.ServiceConfig;
+import org.apache.dubbo.config.bootstrap.DubboBootstrap;
+import org.apache.dubbo.config.spring.context.DubboBootstrapApplicationListener;
+
 /**
  * desc:
  *
@@ -15,13 +19,13 @@ package org.apache.dubbo.demo.consumer.执行流程.dubbo服务暴露过程;
          第二部是将Invoker通过具体的协议转换成Exporter
 
 
-        export:187, ServiceConfig (org.apache.dubbo.config)
-        lambda$exportServices$14:1092, DubboBootstrap (org.apache.dubbo.config.bootstrap)
-        exportServices:1079, DubboBootstrap (org.apache.dubbo.config.bootstrap)
-        start:893, DubboBootstrap (org.apache.dubbo.config.bootstrap)
-        onContextRefreshedEvent:62, DubboBootstrapApplicationListener (org.apache.dubbo.config.spring.context)
-        onApplicationContextEvent:55, DubboBootstrapApplicationListener (org.apache.dubbo.config.spring.context)
-        main:30, Annotation_Provider_Application (org.apache.dubbo.demo.provider)
+        export:187, ServiceConfig (org.apache.dubbo.config)  {@link ServiceConfig#export()}
+        lambda$exportServices$14:1092, DubboBootstrap (org.apache.dubbo.config.bootstrap)  {@link DubboBootstrap#exportServices()}
+        exportServices:1079, DubboBootstrap (org.apache.dubbo.config.bootstrap)  {@link DubboBootstrap#exportServices()}
+        start:893, DubboBootstrap (org.apache.dubbo.config.bootstrap)  {@link DubboBootstrap#start()}
+        onContextRefreshedEvent:62, DubboBootstrapApplicationListener (org.apache.dubbo.config.spring.context)  {@link DubboBootstrapApplicationListener#onContextRefreshedEvent(org.springframework.context.event.ContextRefreshedEvent)}
+        onApplicationContextEvent:55, DubboBootstrapApplicationListener (org.apache.dubbo.config.spring.context)  {@link DubboBootstrapApplicationListener#onApplicationContextEvent(org.springframework.context.event.ApplicationContextEvent)}
+        main:30, Annotation_Provider_Application (org.apache.dubbo.demo.provider) {@link org.apache.dubbo.demo.provider.Annotation_Provider_Application}
 
 
  服务暴露的准备:
@@ -57,8 +61,12 @@ package org.apache.dubbo.demo.consumer.执行流程.dubbo服务暴露过程;
 
          loadRegistries 方法我就不做分析了，就是根据配置组装成注册中心相关的 URL ，我就给大家看下拼接成的 URL的样子
          registry://127.0.0.1:2181/com.alibaba.dubbo.registry.RegistryService?application=demo-provider&dubbo=2.0.2&pid=7960&qos.port=22222&registry=zookeeper&timestamp=1598624821286
+         registry://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-annotation-provider&dubbo=2.0.2&id=registryConfig&pid=8404&registry=zookeeper&timestamp=1626848701040
 
 
+
+ 本地暴露和远程暴露之间区别?
+ 本地暴露参考远程暴露,远程暴露是把调用的方式注册到zookeeper上
 
 
  *

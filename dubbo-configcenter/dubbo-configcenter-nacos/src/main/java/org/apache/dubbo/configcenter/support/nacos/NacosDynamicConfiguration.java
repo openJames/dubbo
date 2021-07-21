@@ -234,6 +234,7 @@ public class NacosDynamicConfiguration implements DynamicConfiguration {
 
     @Override
     public boolean publishConfig(String key, String group, String content) {
+        System.out.println("publishConfig NacosDynamicConfiguration: " + key);
         boolean published = false;
         String resolvedGroup = resolveGroup(group);
         try {

@@ -84,6 +84,7 @@ public class ZookeeperDynamicConfiguration extends TreePathDynamicConfiguration 
 
     @Override
     protected boolean doPublishConfig(String pathKey, String content) throws Exception {
+        System.out.println("zkClient doPublishConfig pathKey: " + pathKey + " content: " + content);
         zkClient.create(pathKey, content, false);
         return true;
     }

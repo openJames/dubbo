@@ -59,6 +59,7 @@ public class NopDynamicConfiguration implements DynamicConfiguration {
      */
     @Override
     public boolean publishConfig(String key, String group, String content) {
+        System.out.println("publishConfig NopDynamicConfiguration: " + key);
         return true;
     }
 
